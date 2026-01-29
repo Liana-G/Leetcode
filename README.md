@@ -13,3 +13,4 @@
 
 **Updates:**
 2026/1/27 完成 Python for everybody online courses，对 Python 有模糊的印象，开始刷题，计划每天至少 1 道；
+2016/1/29 leetcode国内版打不开，已经持续 2 天时间，明天必须解决掉，开始正常刷题。
