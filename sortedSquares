@@ -1,0 +1,14 @@
+# 有序数组的平方和
+# 思路：
+#  （1）暴力解法：先求平方，再排序
+#  （2）双指针法：
+
+# 方法一：暴力解法
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        for i in range(len(nums)):
+            nums[i] *= nums[i]
+        nums.sort()
+        return nums
+
+# 方法二：双指针法
