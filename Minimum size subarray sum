@@ -1,0 +1,24 @@
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+#所有关键变量初始化
+        left = 0 
+        right = 0
+        total = 0
+#定义长度结果为无穷大，方便后面比较选择最小
+        a = float('inf') 
+
+        for right in range(len(nums)):
+            total += nums[right]
+
+            while total >= target:
+#选择最小长度的a
+                a = min(a, right - left + 1) 
+#满足>=target的要求情况下，减少左边元素，试图缩短长度 a
+                total -= nums[left] 
+#left向右滑动
+                left += 1 
+
+        if a == float('inf'):
+            return 0
+        else:
+            return a
