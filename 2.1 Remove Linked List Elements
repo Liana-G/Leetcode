@@ -1,0 +1,27 @@
+# 203 Remove Linked List Elements
+# 题目详情：Given the head of a linked list and an integer val,
+# remove all the nodes of the linked list that have Node.val == val, and return the new head.
+
+# 无语 the definition of head is quite confusing for me...so it's not the first val from the list, but the whole list...
+# 注：没用dummy的解法
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        while head and head.val == val:
+            head = head.next
+
+        cur = head
+        while cur and cur.next: #这一句的意思是只要当前节点和下一个节点存在，循环就不会停止
+            if cur.next.val == val:
+                cur.next = cur.next.next
+            else:
+                cur = cur.next
+
+        return head
+
+                       
