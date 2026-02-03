@@ -2,7 +2,8 @@
 # 题目详情：Given the head of a linked list and an integer val,
 # remove all the nodes of the linked list that have Node.val == val, and return the new head.
 
-# 无语 the definition of head is quite confusing for me...so it's not the first val from the list, but the whole list...
+# 无语
+# the definition of head is quite confusing for me...so it's not the first val from the list, but the whole list...
 # 注：没用dummy的解法
 
 # Definition for singly-linked list.
