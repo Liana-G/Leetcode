@@ -8,23 +8,22 @@
 # addAtIndex(index,val)：在链表中的第 index 个节点之前添加值为 val  的节点。如果 index 等于链表的长度，则该节点将附加到链表的末尾。如果 index 大于链表长度，则不会插入节点。如果index小于0，则在头部插入节点。
 # deleteAtIndex(index)：如果索引 index 有效，则删除链表中的第 index 个节点。
 
-class ListNode:
-    def __init__(self, val=0, next=None):
+class ListNode: #定义节点类型
+    def __init__(self, val=0, next=None): #两个默认参数设置：val和下一个节点next（默认val=0，next=None默认不指向任何下一个节点 [val | None]）
         self.val = val
         self.next = next
 
 class MyLinkedList:
-
     def __init__(self):
         self.dummy = ListNode(0)
-        self.size = 0
+        self.size = 0 #表示这是一个dummy节点，不是真实节点
 
 # 获取下标为index的节点的值。
     def get(self, index: int) -> int:
         if index < 0 or index >= self.size:
             return -1
 
-        current = self.dummy_head.next
+        current = self.dummy.next
         for i in range(index):
             current = current.next
 
@@ -32,12 +31,12 @@ class MyLinkedList:
 
 # 将一个val的节点插入到链表中的第一个元素前。
     def addAtHead(self, val: int) -> None:
-        self.dummy_head.next = ListNode(val, self.dummy_head.next)
+        self.dummy.next = ListNode(val, self.dummy.next)
         self.size += 1
         
 # 将一个 val 的节点追加到链表的最后一个元素。
     def addAtTail(self, val: int) -> None:
-        current = self.dummu_head
+        current = self.dummy
         while current.next:
             current = current.next
         current.next = ListNode(val)
@@ -48,24 +47,22 @@ class MyLinkedList:
         if index < 0 or index > self.size:
             return
         
-        current = self.dummy_head
+        current = self.dummy
         for i in range(index):
             current = current.next
-            current.next = ListNode(val, current.next)
-            self.size += 1
+        current.next = ListNode(val, current.next)
+        self.size += 1
         
 # 删除下标为index的节点
     def deleteAtIndex(self, index: int) -> None:
         if index < 0 or index >= self.size:
             return
         
-        current = self.dummy_head
+        current = self.dummy
         for i in range(index):
             current = current.next
-        current = current.next.next
-
+        current.next = current.next.next
         self.size -= 1
-
 
 # Your MyLinkedList object will be instantiated and called as such:
 # obj = MyLinkedList()
