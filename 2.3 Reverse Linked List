@@ -1,0 +1,25 @@
+# 反转链表
+# 题目要求：给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+# 比如：1 --> 2 --> 3 --> 4 --> 5 -->  None， 变成 5 --> 4 --> 3 --> 2 --> 1 --> None
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        pre = None
+        cur = head
+
+        while cur:
+            temp = cur.next #先把下一个节点保存
+            cur.next = pre #翻转
+            pre = cur #pre 前进
+            cur = temp #cur 前进
+        return pre
+
+        
+        
+            
+        
