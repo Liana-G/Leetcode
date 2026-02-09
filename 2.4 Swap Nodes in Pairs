@@ -1,0 +1,36 @@
+# Leetcode#24 Swap Nodes in Pairs
+# 题目：Given a linked list, swap every two adjacent nodes and return its head.
+# You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed).
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # 加上虚拟节点！
+        dummy = ListNode(0)
+        dummy.next = head
+        pre = dummy
+        cur = head
+
+        while cur and cur.next:
+            a = cur
+            b = cur.next
+
+            # 两两交换
+            a.next = b.next
+            pre.next = b
+            b.next = a
+
+# 移动a的值
+            pre = a
+            cur = a.next
+
+        return dummy.next
+
+       
+
+        
+        
