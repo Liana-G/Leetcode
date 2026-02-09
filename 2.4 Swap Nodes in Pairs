@@ -29,8 +29,3 @@ class Solution:
             cur = a.next
 
         return dummy.next
-
-       
-
-        
-        
