@@ -1,0 +1,25 @@
+# Intersection of Two Linked Lists
+# 题目：给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表没有交点，返回 null 。
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+# 首先理解题目的意思！相交指的是节点相同，而不仅仅是值相等。而是nodeA is nodeB。
+        if headA is None or headB is None:
+            # 这句话也可以写为 if not headA or not headB:
+            return None
+
+        pA = headA
+        pB = headB
+
+        #注意：通过“换头”，让两个指针走相同长度的路径，从而抵消长度差。
+        while pA != pB:
+            pA = pA.next if pA else headB
+            pB = pB.next if pB else headA
+    
+        return pA
