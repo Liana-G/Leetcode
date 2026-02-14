@@ -1,0 +1,27 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+# Valid Anagram（字母异位词）
+# 题目解读：异位词的含义是 两个字符串长度相等，且每个字母出现次数完全相同，字母的顺序可以不同；
+# 思路：首先确认长度是否一致？其次确认每个字母出现的频次是否相同？
+        if len(s) != len(t):
+            return False
+
+# 创建计数数组(26个小写字母): [0,0,0,0,0,0,...,0]共26 个，分别对应从 a到z 这 26 个小写字母的出现频次。
+        count = [0] * 26
+
+# 分别统计s和t中的各个字母出现的频次。
+        for ch in s:
+            count[ord(ch) - ord('a')] += 1
+        
+        for ch in t:
+            count[ord(ch) - ord('a')] -= 1
+# 上面这一步是继续在count[]的基础上处理的！
+
+# 判断s和t中的每个字母出现频次是否相同？
+        for i in range(26):
+            if count[i] != 0:
+                return False # 不为0 说明频次存在不同，则不是异位词
+        return True
+
+
+
