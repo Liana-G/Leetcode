@@ -1,0 +1,14 @@
+# 349 Intersection of Two Arrays
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+# 题目：给定两个数组，编写一个函数来计算它们的交集。     
+# 方法一：直接用集合 hash
+        return list(set(nums1) & set(nums2))
+
+# 方法二：手写hash
+# a = set(nums1)
+# result = set()
+# for num in nums2:
+# if num in a:
+# result.add(num)
+# return list(result)
