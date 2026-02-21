@@ -1,1 +1,23 @@
 # 202：Happy Number
+# class Solution:
+    def isHappy(self, n: int) -> bool:
+# 202：Happy Number
+# 前提：一个数的各个数位的平方和，要么循环，要么变为1；
+# 思路：求平方和并记录在一个集合中，如果等于 1-->快乐数，如果循环（某个和重复出现）-->非快乐数；
+        seen = set()  # 记录所有出现的平方和
+
+        while n != 1: # 只要n不为1，就持续循环（为什么是 n 不为 1，而不是平方和不为 1？）
+            if n in seen:
+                return False
+            
+            seen.add(n)
+
+            total = 0
+            temp = n
+            while temp > 0:
+                digit = temp % 10 # n % 10表示取最后一位数
+                total += digit * digit
+                temp //= 10
+            
+            n = total
+        return True
