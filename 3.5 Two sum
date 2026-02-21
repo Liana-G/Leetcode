@@ -1,0 +1,18 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # 思路： 使用map存储每个元素的（key,value)，再返回到map中查询是否有 target 对（按照数组顺序）。
+
+        # 暴力解法，时间复杂度O(n²)
+        #for i in range(len(nums)):
+         #   for j in range(i+1, len(nums)):
+          #      if nums[i] + nums[j] == target:
+            #        return i, j
+
+# 哈希表法/非暴力解法
+        hashmap = {}
+        for i in range(len(nums)):
+            complement = target - nums[i]
+
+            if complement in hashmap:
+                return [hashmap[complement], i] # 返回complement的key值（在 hashmap 中，和原 i值）
+            hashmap[nums[i]] = i #把原 i 值赋给 complement 的 key
